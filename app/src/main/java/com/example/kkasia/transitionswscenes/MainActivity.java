@@ -52,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    TransitionManager.endTransitions(mRootLayout);
+                }
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     TransitionManager.go(new Scene(mRootLayout, mFullScreenImage));
                 }
@@ -61,6 +64,9 @@ public class MainActivity extends AppCompatActivity {
             @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
             @Override
             public void onClick(View v) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    TransitionManager.endTransitions(mRootLayout);
+                }
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     TransitionManager.go(new Scene(mRootLayout, (View) mTranslateLayout), new ChangeBounds());
                 }
